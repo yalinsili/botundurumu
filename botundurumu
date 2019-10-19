@@ -1,0 +1,27 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+exports.run = (client, message) => {
+  const embed = new Discord.RichEmbed()
+  .setTitle('** bot durum**')
+.setDescription(`**Bot aktif!** \n Botu açılış itibariyle şuan; **${client.guilds.size}** sunucu\n**${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ``}** kullanıcı kullanıyor!`)
+.setTimestamp()
+.setThumbnail(client.user.avatarURL)
+.setColor('40bcdb')
+  message.channel.send(embed)
+ };
+  
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0
+};
+
+
+exports.help = {
+  name: 'botdurum',
+  description: 'Victory Code Discorduna Aittir',
+  usage: 'botdurum'
+};
